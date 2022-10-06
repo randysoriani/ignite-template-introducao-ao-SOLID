@@ -25,6 +25,7 @@
       {
         "selector": "interface",
         "format": ["PascalCase"],
+        "endOfLine": "auto",
         "custom": {
           "regex": "^I[A-Z]",
           "match": true
