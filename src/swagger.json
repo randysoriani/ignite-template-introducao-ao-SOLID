@@ -1,0 +1,66 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Challenge 2",
+        "description": "Documenting an API using Swagger",
+        "version": "1.0.0"
+    },
+    "paths":{
+        "/users":{
+            "post":{
+                "tags":["Users"],
+                "summary":"Create a new user",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    },
+                    "400":{
+                        "description": "Email already taken"
+                    }
+                }
+            },
+            "get":{
+                "tags":["Users"],
+                "summary":"Get list of users",
+                "description": "Only admin can access",
+                "responses":{
+                    "200":{
+                        "description": "Users list"
+                    }
+                }
+            }
+        },
+        "/users/{user_id}":{
+            "get":{
+                "tags":["Users"],
+                "summary": "Get specific user profile",
+                
+                "responses":{
+                    "200":{
+                        "description": "Profile of a specific user"
+                    },
+                    "404":{
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    }
+}
